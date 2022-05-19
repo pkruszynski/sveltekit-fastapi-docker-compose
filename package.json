@@ -13,6 +13,8 @@
     "@sveltejs/adapter-node": "^1.0.0-next.73",
     "@sveltejs/adapter-static": "^1.0.0-next.29",
     "@sveltejs/kit": "next",
+    "carbon-components-svelte": "^0.64.0",
+    "carbon-icons-svelte": "^11.0.1",
     "svelte": "^3.44.0"
   },
   "type": "module"

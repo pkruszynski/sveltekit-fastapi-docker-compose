@@ -1,14 +1,24 @@
 <script>
-	import { onMount } from "svelte";
-
-	let fruit_prices = [];
-
-	onMount(async () => {
-		const res = await fetch(`api/fruit_prices/fruit_prices.json`); // For node adapter use the SvelteKit endpoint to connect to the API endpoint
-		// const res = await fetch(`http://localhost:8000/fruit_prices`); // For static adapter connect to API endpoint directly
-		fruit_prices = await res.json();
-		console.log(fruit_prices);
-	});
+	import { Content, Grid, Row, Column } from "carbon-components-svelte";
 </script>
 
-<h1>Banana price is: {fruit_prices.banana}</h1>
+<Content>
+	<Grid>
+		<Row>
+			<Column>
+				<h1>Welcome to SvelteKit Example!</h1>
+				<p>
+					This page is using <a
+						href="https://github.com/carbon-design-system/carbon-components-svelte"
+						>IBM Carbon Components</a
+					>
+					and
+					<a
+						href="https://github.com/carbon-design-system/carbon-icons-svelte"
+						>Icons</a
+					>!
+				</p>
+			</Column>
+		</Row>
+	</Grid>
+</Content>

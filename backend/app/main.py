@@ -1,5 +1,9 @@
+import json
+
+from faker import Faker
 from fastapi import FastAPI
-from fastapi.middleware.cors import CORSMiddleware
+
+# from fastapi.middleware.cors import CORSMiddleware
 
 app = FastAPI()
 
@@ -18,11 +22,17 @@ app = FastAPI()
 # )
 
 
-@app.get("/fruit_prices")
-def get_day_of_week():
+@app.get("/get_scores")
+def get_scores():
     """
-    Get fruit prices
+    Get scores
     """
-    fruit = ["banana", "apple", "orange"]
-    price = [1.37, 0.99, 2.25]
-    return dict(zip(fruit, price))
+    fake = Faker()
+    Faker.seed(0)
+
+    result = []
+
+    for id in range(100):
+        result.append({"id": id, "name": fake.name(), "points": fake.pyint()})
+
+    return json.dumps(result)
