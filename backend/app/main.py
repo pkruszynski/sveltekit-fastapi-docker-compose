@@ -1,4 +1,5 @@
 import json
+import random
 
 from faker import Faker
 from fastapi import FastAPI
@@ -27,6 +28,7 @@ def get_scores():
     """
     Get scores
     """
+
     fake = Faker()
     Faker.seed(0)
 
@@ -36,3 +38,12 @@ def get_scores():
         result.append({"id": id, "name": fake.name(), "points": fake.pyint()})
 
     return json.dumps(result)
+
+
+@app.get("/get_random_number")
+def get_random_number():
+    """
+    Get random number
+    """
+
+    return {"random_number": random.randrange(1, 1000)}

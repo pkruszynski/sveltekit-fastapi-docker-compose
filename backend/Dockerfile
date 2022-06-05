@@ -1,4 +1,4 @@
-FROM python:3.10
+FROM python:slim
 WORKDIR /code
 # Preventing Python from writing pyc files to disc (equivalent to python -B option)
 ENV PYTHONDONTWRITEBYTECODE 1

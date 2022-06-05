@@ -27,6 +27,7 @@
 >
     <HeaderNav>
         <HeaderNavItem href="/scores" text="Scores" />
+        <HeaderNavItem href="/random_number" text="Random Number" />
     </HeaderNav>
     <HeaderUtilities>
         <HeaderGlobalAction
