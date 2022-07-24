@@ -3,10 +3,10 @@
 # COPY ./build/ /usr/local/apache2/htdocs/
 
 # For app generated with node adapter
-FROM node:alpine
+FROM gcr.io/distroless/nodejs:18
 WORKDIR /app
 COPY ./build/ ./build/
 COPY ./node_modules/ ./node_modules/
 COPY ./package.json ./package.json
 EXPOSE 3000
-CMD ["node", "./build"]
+CMD ["./build"]

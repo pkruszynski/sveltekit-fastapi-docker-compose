@@ -1,7 +1,21 @@
 <script>
-	import { Content, Grid, Row, Column } from "carbon-components-svelte";
+	import {
+		Content,
+		Grid,
+		Row,
+		Column,
+		Button,
+	} from "carbon-components-svelte";
 
 	export let random_integer;
+
+	let number = random_integer.random_number;
+
+	async function getNumber() {
+		const res = await fetch(`random_number/__data.json`);
+		const randNum = await res.json();
+		number = randNum.random_integer.random_number;
+	}
 </script>
 
 <Content>
@@ -16,7 +30,10 @@
 						>https://kit.svelte.dev/docs/routing#endpoints-page-endpoints</a
 					>
 				</p>
-				<h1>Your random number is: {random_integer.random_number}</h1>
+				<br />
+				<h1>Your random number is: {number}</h1>
+				<br />
+				<Button on:click={getNumber}>Get new random number</Button>
 			</Column>
 		</Row>
 	</Grid>
